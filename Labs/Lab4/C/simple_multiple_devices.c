@@ -13,7 +13,7 @@ int main() {
     for (i = 0; i <= num_dev; i++) {
         #pragma omp target device(i) if(i!=num_dev)
         {
-            device_num[i] = i; // omp_get_device_num(); not supported in clang yet
+            device_num[i] = omp_get_device_num();
             initial_device[i] = omp_is_initial_device();
         }
     }
