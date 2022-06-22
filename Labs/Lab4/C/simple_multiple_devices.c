@@ -2,19 +2,25 @@
 #include <omp.h>
 
 int main() {
-    int device_num[omp_get_num_devices()+1] = {0};
-    int i;
+    int i, num_dev = omp_get_num_devices();
+    // Max num dev to 10 just for simpler code
+    num_dev = num_dev > 10 ? 10 : num_dev;
+    int device_num[11];
+    int initial_device[11];
+
     // Iterate over each available device and execute code
     // If i == omp_get_num_devices(), execute on the host.
-    for (i = 0; i <= omp_get_num_devices(); i++) {
-        #pragma omp target device(i) if(i!=omp_get_num_devices())
+    for (i = 0; i <= num_dev; i++) {
+        #pragma omp target device(i) if(i!=num_dev)
         {
-            device_num[0] = omp_get_device_num();
+            device_num[i] = i; // omp_get_device_num(); not supported in clang yet
+            initial_device[i] = omp_is_initial_device();
         }
     }
 
     // Print which device was used for each region.
-    for (i = 0; i <= omp_get_num_devices(); i++)
-        printf("Code executed for i = %d in device %d\n", i,device_num[i]);
+    for (i = 0; i <= num_dev; i++)
+        printf("Code executed for i = %d in device %d that is%s the initial device\n", 
+                                                        i, device_num[i], initial_device[i]?"":" not");
     return 0;
 }
