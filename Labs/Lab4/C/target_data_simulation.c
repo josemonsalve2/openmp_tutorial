@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 #define N 10000
-#define STEPS 10000
+#define STEPS 50000
 
 void simFunction(double* A) {
     A[0]++;
