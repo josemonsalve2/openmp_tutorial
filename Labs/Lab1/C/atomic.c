@@ -5,7 +5,7 @@
 int main() {
     int i = 0;
 
-    #pragma omp parallel shared(i) num_threads(10000)
+    #pragma omp parallel shared(i) num_threads(1000)
     {
         #pragma omp atomic
         i++;
