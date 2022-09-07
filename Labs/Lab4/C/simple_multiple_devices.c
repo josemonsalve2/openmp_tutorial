@@ -13,8 +13,9 @@ int main() {
     for (i = 0; i <= num_dev; i++) {
         #pragma omp target device(i) if(i!=num_dev)
         {
-            device_num[i] = omp_get_device_num();
-            initial_device[i] = omp_is_initial_device();
+            //device_num[i] = omp_get_device_num(); // not supported in clang 14 at NERSC
+            //Some little hack to get expected result
+            device_num[i] = omp_is_initial_device() ? omp_get_num_devices() : num_dev;            initial_device[i] = omp_is_initial_device();
         }
     }
 
