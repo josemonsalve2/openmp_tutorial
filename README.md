@@ -8,4 +8,4 @@ This is work in progress and it still does not cover the whole specification. Th
 
 Feel free to suggest changes and fix stuff. 
 
-Jose
+This project is partially supported by ECP SOLLVE and by [CyberColombia](www.cybercolombia.org)
