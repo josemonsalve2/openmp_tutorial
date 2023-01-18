@@ -11,3 +11,5 @@ Feel free to suggest changes and fix stuff.
 This project is partially supported by ECP SOLLVE and by [CyberColombia](https://cybercolombia.org)
 
 We thank [Chameleon Cloud](https://www.chameleoncloud.org/) for its support in compute time
+
+This project was recognized as an Honorable Mention for the [BSSw Fellowship in 2023](https://bssw.io/pages/meet-our-fellows)
