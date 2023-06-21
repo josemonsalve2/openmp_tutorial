@@ -16,6 +16,9 @@ int main() {
     int min = 100000;
     int avg;
 
+    // We will cover this line in the next section
+    omp_set_dynamic(0);
+   
     #pragma omp parallel num_threads(100)
     {
         Array[omp_get_thread_num()] = rand() % 10000;
@@ -23,19 +26,19 @@ int main() {
 
     PRINT_ARR(Array,100);
 
-    #pragma omp parallel reduction(max:max)
+    #pragma omp parallel reduction(max:max) num_threads(100)
     {
         max = Array[omp_get_thread_num()];
     }
     printf("max is %d\n",max);
 
-    #pragma omp parallel reduction(min:min)
+    #pragma omp parallel reduction(min:min) num_threads(100)
     {
         min = Array[omp_get_thread_num()];
     }
     printf("min is %d\n",min);
 
-    #pragma omp parallel reduction(+:avg)
+    #pragma omp parallel reduction(+:avg) num_threads(100)
     {
         avg = Array[omp_get_thread_num()]/100;
     }
