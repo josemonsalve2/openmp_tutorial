@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 #include <omp.h>
 
 #define N 1300
@@ -56,16 +55,16 @@ int main()
     }
 
     // Perform matrix multiplication
-    clock_t start = omp_get_wtime();
+    double start = omp_get_wtime();
     sequentian(A, B, C);
-    clock_t end = omp_get_wtime();
-    double time_spent = (double)(end - start);
+    double end = omp_get_wtime();
+    double time_spent = end - start;
     printf("Time spent in sequential: %f\n", time_spent);
 
     start = omp_get_wtime();
     parallel(A, B, C);
     end = omp_get_wtime();
-    time_spent = (double)(end - start);
+    time_spent = end - start;
     printf("Time spent in parallel: %f\n", time_spent);
 
     // Print the result matrix C
