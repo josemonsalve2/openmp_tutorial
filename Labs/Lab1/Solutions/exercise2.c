@@ -5,7 +5,7 @@
 #define PRINT_ARR(A, size) { \
    printf("["); \
    int i;\
-   for (i = 0; i < size; ++i && printf(" %d ",A[i-1]));\
+   for (i = 0; i < size; ++i && printf(" %d \n",A[i-1]));\
    printf("]\n"); \
 }
 
