@@ -3,7 +3,7 @@
 
 int main() {
     int a = 10;
-    #pragma omp target // implicit firsprivate(a)
+    #pragma omp target // implicit firstprivate(a)
     {
         printf("a = %d\n",a);
         a = 20;

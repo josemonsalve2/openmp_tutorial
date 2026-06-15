@@ -3,7 +3,7 @@
 
 int main()
 {
-    int x;
+    int x = 0;
     int arr[10];
     #pragma omp parallel
         #pragma omp for schedule(static, 3) firstprivate(x)
