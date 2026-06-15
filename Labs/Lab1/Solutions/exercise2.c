@@ -14,7 +14,7 @@ int main() {
     int Array[100];
     int max = 0;
     int min = 100000;
-    int avg;
+    int avg = 0;
 
     // We will cover this line in the next section
     omp_set_dynamic(0);
